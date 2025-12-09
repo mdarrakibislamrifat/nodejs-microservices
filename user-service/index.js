@@ -7,7 +7,7 @@ const port = 3001;
 app.use(bodyParser.json());
 
 mongoose
-  .connect("mongodb://localhost:27017/users")
+  .connect("mongodb://mongo:27017/users")
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
