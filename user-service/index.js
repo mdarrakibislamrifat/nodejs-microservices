@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
+// Get all users
 app.get("/users", async (req, res) => {
   try {
     const users = await User.find();
@@ -27,6 +28,7 @@ app.get("/users", async (req, res) => {
   }
 });
 
+// Post a new user
 app.post("/users", async (req, res) => {
   try {
     const user = new User(req.body);
@@ -42,5 +44,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`User service listening on port ${port}`);
 });
