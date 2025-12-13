@@ -8,7 +8,9 @@ async function start() {
 
     channel = await connection.createChannel();
     await channel.assertQueue("task_created");
+
     console.log("Notification Service is listening to messages");
+
     channel.consume("task_created", (msg) => {
       const taskData = JSON.parse(msg.content.toString());
       console.log("Notification Service : Task Created", taskData.title);
